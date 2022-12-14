@@ -1,0 +1,21 @@
+<div class="flex-container">
+    <h3>Products</h3>
+    <div>
+        <div *ngFor="let product of productList" class="products" >
+            <div class="card" style="width: 18rem;">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                  <h5 class="card-title">{{product.name}}</h5>
+                  <h6 class="card-text">Cost: {{product.cost}}</h6>
+                  <h6 class="card-text">Category: {{product.category}}</h6>
+                  <h6 class="card-text" *ngIf="product.imported==true">This item is imported.</h6>
+                  <a href="#" (click)="addItem(product)" class="btn btn-primary">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <app-shopping-cart [products]="selectedProduct"></app-shopping-cart>
+    </div>  
+</div>
+
